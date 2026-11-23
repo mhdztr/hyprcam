@@ -1,6 +1,6 @@
 # Maintainer: mhdztr <zakkithoriq@gmail.com>
 pkgname=hyprcam
-pkgver=0.1.0
+pkgver=0.2.1
 pkgrel=1
 pkgdesc="Frameless, tiled webcam window for Hyprland with live settings and OBS-friendly screen capture"
 arch=('any')
@@ -13,10 +13,10 @@ optdepends=(
   'hyprland: keybinding and window-rule integration'
 )
 source=("https://github.com/mhdztr/hyprcam/archive/refs/tags/v${pkgver}.tar.gz")
-# sha256 of the v0.1.0 GitHub source tarball (verified 2026-11-23):
-#   curl -fsSL -o hyprcam-v0.1.0.tar.gz https://github.com/mhdztr/hyprcam/archive/refs/tags/v0.1.0.tar.gz
-#   sha256sum hyprcam-v0.1.0.tar.gz
-sha256sums=('46029482e1d25a541e52bdca167683b5b90d573403e3843e56b4ab1aeb28084c')
+# sha256 of the v0.2.1 GitHub source tarball (verified 2026-11-23):
+#   curl -fsSL -o hyprcam-v0.2.1.tar.gz https://github.com/mhdztr/hyprcam/archive/refs/tags/v0.2.1.tar.gz
+#   sha256sum hyprcam-v0.2.1.tar.gz
+sha256sums=('4ad4781171af026a3f012588fa277b5899f07cba835d94d79131747887fafe29')
 
 build() {
   cd "${srcdir}/hyprcam-${pkgver}"

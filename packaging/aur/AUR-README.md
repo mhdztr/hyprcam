@@ -32,8 +32,8 @@ makepkg -si
 hyprcam --list-devices
 ```
 
-`makepkg --verifysource` checks the real sha256 of the `v0.1.0` source tarball.
-The `sha256sums` entry is a real checksum, not `SKIP`. If the `v0.1.0` tag is
+`makepkg --verifysource` checks the real sha256 of the `v0.2.1` source tarball.
+The `sha256sums` entry is a real checksum, not `SKIP`. If the `v0.2.1` tag is
 ever recreated, download the tarball again and update the checksum plus
 `.SRCINFO`.
 
@@ -53,7 +53,7 @@ cp /path/to/hyprcam/packaging/aur/LICENSE .
 # Optional but recommended after any PKGBUILD edit:
 makepkg --printsrcinfo > .SRCINFO
 git add PKGBUILD .SRCINFO LICENSE
-git commit -m 'feat: add hyprcam 0.1.0'
+git commit -m 'feat: add hyprcam 0.2.1'
 git push
 ```
 

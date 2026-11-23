@@ -20,7 +20,7 @@ jobs:
     permissions:
       id-token: write # PyPI Trusted Publishing (OIDC); no API token required.
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - uses: actions/setup-python@v5
         with:

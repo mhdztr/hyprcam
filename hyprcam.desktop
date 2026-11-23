@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=hyprcam
+Comment=Minimal frameless webcam window for Hyprland
+Exec=hyprcam
+TryExec=hyprcam
+Icon=camera-web
+Terminal=false
+Categories=Video;AudioVideo;
+Keywords=webcam;camera;hyprland;obs;

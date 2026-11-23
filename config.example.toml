@@ -1,0 +1,10 @@
+# Copy to ~/.config/hyprcam/config.toml (or edit via `hyprcam --settings`).
+# Command-line flags override these values for a single launch.
+
+device = "/dev/video0"        # V4L2 device path; see `hyprcam --list-devices`
+width = 640                   # requested capture width
+height = 480                  # requested capture height
+fps = 30                      # requested capture frame rate
+pixel_format = "MJPG"         # FOURCC code: MJPG, YUYV, YUY2, NV12, ...
+mirror = true                 # mirror the image horizontally
+float = false                 # false: tiled "hyprcam" window; true: "hyprcam-float"

@@ -4,6 +4,11 @@
 [![Release](https://img.shields.io/github/v/release/mhdztr/hyprcam)](https://github.com/mhdztr/hyprcam/releases)
 [![License: MIT](https://img.shields.io/github/license/mhdztr/hyprcam)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%20%7C%203.12%20%7C%203.13-blue)](https://www.python.org/downloads/)
+[![PyPI](https://img.shields.io/pypi/v/hyprcam)](https://pypi.org/project/hyprcam/)
+[![AUR](https://img.shields.io/aur/version/hyprcam)](https://aur.archlinux.org/packages/hyprcam)
+
+> The PyPI and AUR badges display "not found" until the first PyPI upload and
+> the AUR submission are live.
 
 A minimal webcam window for [Hyprland](https://hypr.land/). It opens as a normal
 **tiled, frameless** window, so OBS can capture your face by recording a region

@@ -1,0 +1,19 @@
+pkgbase = hyprcam
+	pkgdesc = Frameless, tiled webcam window for Hyprland with live settings and OBS-friendly screen capture
+	pkgver = 0.1.0
+	pkgrel = 1
+	url = https://github.com/mhdztr/hyprcam
+	arch = any
+	license = MIT
+	makedepends = python-build
+	makedepends = python-installer
+	makedepends = python-setuptools
+	depends = python
+	depends = pyside6
+	depends = python-opencv
+	optdepends = v4l-utils: detailed camera and FOURCC format discovery
+	optdepends = hyprland: keybinding and window-rule integration
+	source = https://github.com/mhdztr/hyprcam/archive/refs/tags/v0.1.0.tar.gz
+	sha256sums = 46029482e1d25a541e52bdca167683b5b90d573403e3843e56b4ab1aeb28084c
+
+pkgname = hyprcam

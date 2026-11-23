@@ -4,11 +4,12 @@
 [![Release](https://img.shields.io/github/v/release/mhdztr/hyprcam)](https://github.com/mhdztr/hyprcam/releases)
 [![License: MIT](https://img.shields.io/github/license/mhdztr/hyprcam)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%20%7C%203.12%20%7C%203.13-blue)](https://www.python.org/downloads/)
-[![PyPI](https://img.shields.io/pypi/v/hyprcam)](https://pypi.org/project/hyprcam/)
+[![PyPI](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fpypi.org%2Fpypi%2Fhyprcam%2Fjson&query=%24.info.version&label=PyPI)](https://pypi.org/project/hyprcam/)
 [![AUR](https://img.shields.io/aur/version/hyprcam)](https://aur.archlinux.org/packages/hyprcam)
 
-> PyPI is live; the AUR badge shows "not found" until the AUR package is
-> submitted. Badge providers may cache briefly.
+> The PyPI badge reads live PyPI metadata and shows 0.2.1; the AUR badge shows
+> "not found" until the AUR package is submitted. Badge providers may cache
+> briefly.
 
 A minimal webcam window for [Hyprland](https://hypr.land/). It opens as a normal
 **tiled, frameless** window, so OBS can capture your face by recording a region
@@ -18,7 +19,7 @@ mixer configuration.
 The video window has no chrome or controls. Right-click it (or use
 `hyprcam --settings`) to open the settings dialog.
 
-> **Status:** early-stage (v0.1.0), Linux/V4L2 only. PyPI publishing is live;
+> **Status:** early-stage (v0.2.1), Linux/V4L2 only. PyPI publishing is live;
 > AUR packaging is prepared but not submitted yet. See
 > [Installation](#installation) and [Publishing](#publishing-maintainers).
 
@@ -87,7 +88,7 @@ cd hyprcam/packaging/aur
 makepkg -si
 ```
 
-The package builds from the `v0.1.0` source tarball with
+The package builds from the `v0.2.1` source tarball with
 `python -m build --wheel --no-isolation` and installs the wheel with
 `python -m installer`, using Arch's system `pyside6`, `python-opencv` and
 `python` packages. Once a package is listed on AUR, the usual
@@ -104,14 +105,12 @@ python3 -m pip install hyprcam
 hyprcam --list-devices
 ```
 
-The current PyPI release is version `0.1.0`, while the latest GitHub tag is
-`v0.2.0`; the tag was bumped for the release workflow, and the package version
-will be aligned in a later release.
+PyPI serves the current `0.2.1` release.
 
 The tagged Git source can also be installed directly:
 
 ```sh
-python3 -m pip install 'git+https://github.com/mhdztr/hyprcam.git@v0.1.0'
+python3 -m pip install 'git+https://github.com/mhdztr/hyprcam.git@v0.2.1'
 ```
 
 A virtual environment is recommended (`python3 -m venv .venv && . .venv/bin/activate`).
@@ -319,8 +318,9 @@ frames. Mirroring is the only image transform today.
 **Can I open two cameras at once?** Not yet. One device per process; per-device
 profiles are on the feature ideas list.
 
-**Is it on AUR or PyPI?** PyPI is live; use `python3 -m pip install hyprcam`.
-AUR packaging is included but has not been submitted yet. See below.
+**Is it on AUR or PyPI?** PyPI serves version 0.2.1; use
+`python3 -m pip install hyprcam`. AUR packaging is included but has not been
+submitted yet. See below.
 
 **Why does my camera reject the requested resolution?** Cameras only support
 discrete modes; OpenCV may silently pick a nearby one. Use
@@ -343,9 +343,11 @@ PyPI publishing is opt-in so the workflow never fails before it is configured:
    **trusted publisher** with: PyPI Project Name `hyprcam`, Owner `mhdztr`,
    Repository `hyprcam`, Workflow `Publish to PyPI`, Environment `pypi`.
 4. Push a new tag, for example
-   `git tag -a v0.2.0 -m "hyprcam v0.2.0" && git push origin v0.2.0`. The
-   `pypi` environment is created on first use. PyPI filenames are immutable, so
-   do not try to republish `v0.1.0`.
+   `git tag -a v0.3.0 -m "hyprcam v0.3.0" && git push origin v0.3.0`. The
+   `pypi` environment is created on first use. PyPI filenames are immutable;
+   bump the version for each new release.
+
+The current published release is v0.2.1.
 
 The workflow uses `pypa/gh-action-pypi-publish@release/v1` with OIDC
 (`id-token: write`); no PyPI token is stored in the repository.

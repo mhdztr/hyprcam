@@ -7,16 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-11-23
+
+Publishing and packaging release. Entries below are derived from the commits in
+this release.
+
 ### Added
 
-- AUR-ready packaging under `packaging/aur/` (`PKGBUILD`, `.SRCINFO`, submission notes).
-- Gated PyPI Trusted Publishing workflow, enabled by the `ENABLE_PYPI_PUBLISH` repository variable.
-- Contributing guide, code of conduct, changelog, issue forms, pull request template and weekly Dependabot updates.
-- Expanded PyPI package metadata: full description, license expression, keywords, classifiers and project URLs.
+- Gated PyPI Trusted Publishing workflow, enabled by the `ENABLE_PYPI_PUBLISH` repository variable (`3982514`); first release published to PyPI.
+- Expanded PyPI package metadata: full description, license expression, keywords, classifiers and project URLs (`dc9b574`).
+- AUR-ready packaging under `packaging/aur/` (`PKGBUILD`, `.SRCINFO`, submission notes) (`b26fbcf`, `a988fd3`).
+- Contributing guide, code of conduct, changelog, issue forms, pull request template and weekly Dependabot updates (`4f5f0dc`, `1da31a8`).
+- PyPI and AUR README badges (`e58082b`).
 
 ### Changed
 
-- README rewritten with badges, install paths, configuration reference, OBS workflow, FAQ and publishing setup.
+- README rewritten with badges, install paths, configuration reference, OBS workflow, FAQ and publishing setup (`9069020`, `c209645`).
+- Dependency updates: `softprops/action-gh-release` 2→3, `actions/checkout` 4→7 and `actions/setup-python` 5→7 (`50d7322`, `73490f4`, `8fcdcfc`).
+- Package version and installation documentation aligned to the published 0.2.1 release.
 
 ## [0.1.0] - 2026-11-23
 
@@ -39,5 +47,6 @@ First tagged release. Entries below are derived from the commits in this release
 
 - Use the valid `border_size` field in the Lua window rules (`ea89f82`).
 
-[Unreleased]: https://github.com/mhdztr/hyprcam/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/mhdztr/hyprcam/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/mhdztr/hyprcam/releases/tag/v0.2.1
 [0.1.0]: https://github.com/mhdztr/hyprcam/releases/tag/v0.1.0

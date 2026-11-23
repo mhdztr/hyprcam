@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "hyprcam"
-version = "0.1.0"
+version = "0.2.1"
 description = "Frameless, tiled webcam window for Hyprland with live settings and OBS-friendly screen capture"
 readme = "README.md"
 requires-python = ">=3.11"

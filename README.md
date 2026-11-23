@@ -58,8 +58,8 @@ Add the rules in `hyprland/rules.lua` under `-- Per app rules`:
 
 ```lua
 -- hyprcam: frameless tiled camera window; floating variant selected by title
-hl.window_rule({ match = { title = "^hyprcam$" },       noborder = true, tile = true })
-hl.window_rule({ match = { title = "^hyprcam-float$" }, noborder = true, float = true, size = "480 360", center = true })
+hl.window_rule({ match = { title = "^hyprcam$" },       border_size = 0, tile = true })
+hl.window_rule({ match = { title = "^hyprcam-float$" }, border_size = 0, float = true, size = "480 360", center = true })
 hl.window_rule({ match = { title = "^hyprcam-settings$" }, float = true, size = "520 420", center = true })
 ```
 

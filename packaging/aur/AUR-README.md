@@ -40,16 +40,19 @@ ever recreated, download the tarball again and update the checksum plus
 ## Submit
 
 The AUR package name is expected to be `hyprcam`. If it is already taken,
-choose another name and update `pkgname` in `PKGBUILD` before submitting.
+choose another name and update `pkgname` in `PKGBUILD` before submitting. The AUR
+git repository should contain `PKGBUILD`, `.SRCINFO` and `LICENSE` (0BSD, as
+recommended for AUR package sources); no other files are needed.
 
 ```sh
 git clone ssh://aur@aur.archlinux.org/hyprcam.git
 cd hyprcam
 cp /path/to/hyprcam/packaging/aur/PKGBUILD .
 cp /path/to/hyprcam/packaging/aur/.SRCINFO .
+cp /path/to/hyprcam/packaging/aur/LICENSE .
 # Optional but recommended after any PKGBUILD edit:
 makepkg --printsrcinfo > .SRCINFO
-git add PKGBUILD .SRCINFO
+git add PKGBUILD .SRCINFO LICENSE
 git commit -m 'feat: add hyprcam 0.1.0'
 git push
 ```

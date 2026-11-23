@@ -1,0 +1,97 @@
+name: Bug report
+description: Report a problem with the camera window, settings, or installation
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Please fill in as much as you can — camera and
+        compositor details usually decide whether this is a capture, window-rule
+        or packaging issue.
+
+  - type: input
+    id: version
+    attributes:
+      label: hyprcam version
+      description: Release tag or commit you are running.
+      placeholder: v0.1.0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: install-method
+    attributes:
+      label: How did you install hyprcam?
+      options:
+        - AUR / makepkg
+        - pip / PyPI
+        - Source checkout with scripts/hyprcam-install-user
+        - Editable install
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: system
+    attributes:
+      label: System versions
+      description: Arch or distro release, Hyprland, Qt/PySide6, Python and v4l-utils versions.
+      placeholder: "Arch (2026-11), Hyprland 0.5x, PySide6 6.x, Python 3.13"
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Commands and keybindings, in order.
+      placeholder: |
+        1. Press Super+B
+        2. Right-click the window
+        3. Change pixel format to YUYV
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behaviour
+      description: Include any error text shown in the window or terminal.
+    validations:
+      required: true
+
+  - type: textarea
+    id: devices
+    attributes:
+      label: Camera details
+      description: Paste the full output of `hyprcam --list-devices`.
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Additional diagnostics
+      description: Output of `hyprctl clients`, `hyprctl configerrors`, or terminal logs if relevant.
+      render: shell
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I checked the README troubleshooting and FAQ sections.
+          required: true
+        - label: I confirmed no other app (OBS, browser, ffplay) is holding the camera.
+          required: false

@@ -1,0 +1,64 @@
+name: Feature request
+description: Suggest an improvement or a new capability for hyprcam
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please describe the workflow you want to improve. Concrete use cases
+        make it much easier to judge scope and priority.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Capture / video processing
+        - Window / Hyprland integration
+        - Settings / configuration
+        - Packaging / installation
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      description: What are you unable to do today, and how often does it come up?
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: What should hyprcam do? Include example commands, settings or UI if useful.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Other tools or workarounds you tried, and why they fall short.
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Links, screenshots, or examples from similar projects.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched existing issues and discussions for a similar request.
+          required: true

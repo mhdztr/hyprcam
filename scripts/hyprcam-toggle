@@ -1,0 +1,10 @@
+#!/bin/sh
+# Toggle hyprcam from the source tree; safe to invoke through a symlink.
+set -eu
+
+SELF=$(readlink -f "$0")
+ROOT=$(CDPATH= cd -- "$(dirname "$SELF")/.." && pwd)
+PYTHONPATH="$ROOT/src${PYTHONPATH:+:$PYTHONPATH}"
+export PYTHONPATH
+
+exec python3 -m hyprcam.toggle "$@"

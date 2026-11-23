@@ -5,19 +5,36 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "hyprcam"
 version = "0.1.0"
-description = "Minimal frameless webcam window designed to tile in Hyprland"
+description = "Frameless, tiled webcam window for Hyprland with live settings and OBS-friendly screen capture"
 readme = "README.md"
 requires-python = ">=3.11"
-license = { file = "LICENSE" }
+license = "MIT"
+license-files = ["LICENSE"]
 authors = [{ name = "mhdztr", email = "zakkithoriq@gmail.com" }]
-keywords = ["hyprland", "webcam", "v4l2", "obs", "qt"]
+keywords = [
+    "hyprland",
+    "wayland",
+    "webcam",
+    "v4l2",
+    "obs",
+    "qt",
+    "pyside6",
+    "opencv",
+    "screen-capture",
+    "arch-linux",
+    "tiling-window-manager",
+]
 classifiers = [
+    "Development Status :: 3 - Alpha",
     "Environment :: X11 Applications :: Qt",
+    "Intended Audience :: End Users/Desktop",
     "Operating System :: POSIX :: Linux",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Topic :: Desktop Environment :: Window Managers",
     "Topic :: Multimedia :: Video :: Capture",
 ]
 dependencies = [
@@ -39,7 +56,12 @@ hyprcam-toggle = "hyprcam.toggle:main"
 
 [project.urls]
 Homepage = "https://github.com/mhdztr/hyprcam"
+Source = "https://github.com/mhdztr/hyprcam"
 Repository = "https://github.com/mhdztr/hyprcam"
+Issues = "https://github.com/mhdztr/hyprcam/issues"
+Documentation = "https://github.com/mhdztr/hyprcam#readme"
+Changelog = "https://github.com/mhdztr/hyprcam/blob/main/CHANGELOG.md"
+Releases = "https://github.com/mhdztr/hyprcam/releases"
 
 [tool.setuptools.packages.find]
 where = ["src"]

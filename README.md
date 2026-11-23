@@ -26,14 +26,37 @@ The window has no chrome or controls. Right-click it to open the settings dialog
 sudo pacman -S pyside6 python-opencv ruff mypy python-pytest python-build v4l-utils
 ```
 
-From a checkout:
+From a checkout, run the idempotent user installer:
 
 ```sh
 cd ~/Projects/hyprcam
-chmod +x scripts/hyprcam scripts/hyprcam-toggle
-ln -sf "$PWD/scripts/hyprcam" ~/.local/bin/hyprcam
-ln -sf "$PWD/scripts/hyprcam-toggle" ~/.local/bin/hyprcam-toggle
+chmod +x scripts/hyprcam-install-user
+./scripts/hyprcam-install-user
 ```
+
+It creates `~/.local/bin/hyprcam` and `~/.local/bin/hyprcam-toggle` symlinks,
+installs `hyprcam.desktop` into `~/.local/share/applications/`, and seeds
+`~/.config/hyprcam/config.toml` from `config.example.toml` without overwriting
+an existing config. Re-running it is safe. If `~/.local/bin` is not on `PATH`,
+it prints a warning instead of failing.
+
+Make sure `~/.local/bin` is on your `PATH`, or `hyprcam` only works by full path
+and the desktop entry's `Exec=hyprcam` will fail. For zsh, uncomment (or add)
+this line in `~/.zshrc`, above the Oh My Zsh setup:
+
+```sh
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+```
+
+For fish, add this near the top of `~/.config/fish/config.fish`:
+
+```fish
+fish_add_path $HOME/.local/bin
+```
+
+Then open a new shell (or re-login) and confirm `command -v hyprcam` prints a
+path. Desktop environments pick up the installed `.desktop` file on next login;
+`update-desktop-database ~/.local/share/applications` refreshes it immediately.
 
 The wrapper scripts resolve their own real path with `readlink -f`, add `src/`
 to `PYTHONPATH`, and exec `python3 -m hyprcam`, so symlinks work without
@@ -92,7 +115,8 @@ rule).
 ### Configuration
 
 Location: `~/.config/hyprcam/config.toml` (or `$XDG_CONFIG_HOME/hyprcam/config.toml`).
-See [`config.example.toml`](config.example.toml).
+See [`config.example.toml`](config.example.toml). The user installer seeds this
+file on first run; until then hyprcam uses built-in defaults.
 
 ```toml
 device = "/dev/video0"
@@ -151,7 +175,12 @@ pytest -q
 ```
 
 CI runs the same checks on Python 3.11–3.13. Pushing a `v*` tag builds an sdist
-and wheel and attaches them to a GitHub Release.
+and wheel and attaches them to a GitHub Release:
+
+```sh
+git tag -a v0.1.0 -m "hyprcam v0.1.0"
+git push origin v0.1.0
+```
 
 ## License
 

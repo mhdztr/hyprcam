@@ -7,8 +7,8 @@
 [![PyPI](https://img.shields.io/pypi/v/hyprcam)](https://pypi.org/project/hyprcam/)
 [![AUR](https://img.shields.io/aur/version/hyprcam)](https://aur.archlinux.org/packages/hyprcam)
 
-> The PyPI and AUR badges display "not found" until the first PyPI upload and
-> the AUR submission are live.
+> PyPI is live; the AUR badge shows "not found" until the AUR package is
+> submitted. Badge providers may cache briefly.
 
 A minimal webcam window for [Hyprland](https://hypr.land/). It opens as a normal
 **tiled, frameless** window, so OBS can capture your face by recording a region
@@ -18,10 +18,9 @@ mixer configuration.
 The video window has no chrome or controls. Right-click it (or use
 `hyprcam --settings`) to open the settings dialog.
 
-> **Status:** early-stage (v0.1.0), Linux/V4L2 only. AUR packaging and PyPI
-> publishing are prepared in this repository but no package has been submitted
-> or published yet. See [Installation](#installation) and
-> [Publishing](#publishing-maintainers).
+> **Status:** early-stage (v0.1.0), Linux/V4L2 only. PyPI publishing is live;
+> AUR packaging is prepared but not submitted yet. See
+> [Installation](#installation) and [Publishing](#publishing-maintainers).
 
 ## Contents
 
@@ -78,8 +77,8 @@ commands.
 ### Arch Linux / AUR packaging
 
 AUR-ready files live in [`packaging/aur/`](packaging/aur/) (`PKGBUILD`,
-`.SRCINFO` and submission notes). **No AUR package has been submitted yet**, so
-build and install it locally for now:
+`.SRCINFO` and submission notes). **No AUR package has been submitted yet**
+(AUR registration is currently closed), so build and install it locally for now:
 
 ```sh
 sudo pacman -S --needed base-devel
@@ -98,18 +97,21 @@ submission commands.
 
 ### pip / PyPI
 
-There is no PyPI release yet — publishing is opt-in and gated (see below). The
-tagged Git source can already be installed with pip:
-
-```sh
-python3 -m pip install 'git+https://github.com/mhdztr/hyprcam.git@v0.1.0'
-hyprcam --list-devices
-```
-
-After the first successful publish workflow run, the normal path becomes:
+Install from [PyPI](https://pypi.org/project/hyprcam/):
 
 ```sh
 python3 -m pip install hyprcam
+hyprcam --list-devices
+```
+
+The current PyPI release is version `0.1.0`, while the latest GitHub tag is
+`v0.2.0`; the tag was bumped for the release workflow, and the package version
+will be aligned in a later release.
+
+The tagged Git source can also be installed directly:
+
+```sh
+python3 -m pip install 'git+https://github.com/mhdztr/hyprcam.git@v0.1.0'
 ```
 
 A virtual environment is recommended (`python3 -m venv .venv && . .venv/bin/activate`).
@@ -317,8 +319,8 @@ frames. Mirroring is the only image transform today.
 **Can I open two cameras at once?** Not yet. One device per process; per-device
 profiles are on the feature ideas list.
 
-**Is it on AUR or PyPI?** Not yet. AUR packaging and a gated PyPI workflow are
-included, but the user must submit/publish them. See below.
+**Is it on AUR or PyPI?** PyPI is live; use `python3 -m pip install hyprcam`.
+AUR packaging is included but has not been submitted yet. See below.
 
 **Why does my camera reject the requested resolution?** Cameras only support
 discrete modes; OpenCV may silently pick a nearby one. Use
@@ -346,8 +348,7 @@ PyPI publishing is opt-in so the workflow never fails before it is configured:
    do not try to republish `v0.1.0`.
 
 The workflow uses `pypa/gh-action-pypi-publish@release/v1` with OIDC
-(`id-token: write`); no PyPI token is stored in the repository. A PyPI or AUR
-badge will be added once those listings exist.
+(`id-token: write`); no PyPI token is stored in the repository.
 
 ## Development
 
